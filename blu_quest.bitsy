@@ -43,7 +43,7 @@ PAL 0
 TUNE 2
 
 ROOM 1
-d,0,0,0,0,0,0,0,0,0,a,a,a,a,a,a
+d,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a
 d,d,0,0,0,0,0,0,0,0,0,0,0,0,0,a
 d,d,d,0,0,0,0,0,0,0,0,0,0,0,0,a
 d,d,d,d,d,0,0,0,0,0,0,0,0,0,0,a
@@ -58,10 +58,10 @@ a,0,0,0,0,0,0,0,0,0,0,0,0,0,0,a
 a,0,0,0,0,0,0,0,0,0,0,0,0,0,0,a
 a,0,0,0,0,0,0,0,0,0,0,0,0,0,0,a
 a,0,0,0,0,0,0,0,0,0,0,0,0,0,0,a
-a,a,a,a,a,a,a,a,0,0,0,0,0,a,a,a
+a,a,a,a,a,a,a,a,a,0,0,0,0,a,a,a
 ITM 0 13,2
 EXT 10,15 0 8,0
-EXT 1,0 2 13,13
+EXT 5,3 2 9,15
 PAL 1
 
 ROOM 2
@@ -81,7 +81,7 @@ a,b,0,0,0,0,0,0,0,0,0,0,0,0,b,a
 a,b,0,0,0,0,0,0,0,0,0,0,0,0,b,a
 a,b,0,0,0,0,0,0,0,0,0,0,0,0,b,a
 a,a,a,a,a,a,0,0,0,0,0,0,0,a,a,a
-EXT 13,13 1 1,0
+EXT 9,15 1 5,3
 END 6 8,6
 PAL 0
 
@@ -181,7 +181,7 @@ SPR A
 00011100
 00111100
 00000100
-POS 0 10,15
+POS 1 12,14
 ITM 0 1
 
 SPR b
@@ -206,7 +206,8 @@ SPR c
 01110000
 00000000
 NAME fake key
-POS 1 4,7
+DLG 7
+POS 1 4,6
 
 SPR d
 00000000
@@ -218,7 +219,8 @@ SPR d
 01110000
 00000000
 NAME fake key 3
-POS 1 12,10
+DLG 8
+POS 1 7,1
 
 SPR e
 00000000
@@ -230,7 +232,8 @@ SPR e
 01110000
 00000000
 NAME fake key 2
-POS 1 2,13
+DLG 9
+POS 1 2,12
 
 SPR f
 00000000
@@ -242,7 +245,8 @@ SPR f
 01110000
 00000000
 NAME fakekey 4
-POS 1 7,0
+DLG a
+POS 1 10,8
 
 SPR g
 00000000
@@ -298,6 +302,22 @@ password imported{
 }
 """
 NAME ending 1
+
+DLG 7
+wrong.
+NAME fake key dialog
+
+DLG 8
+wrong.
+NAME fake key 3 dialog
+
+DLG 9
+wrong.
+NAME fake key 2 dialog
+
+DLG a
+wrong.
+NAME fakekey 4 dialog
 
 VAR hasrealkey
 0
