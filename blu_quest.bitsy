@@ -40,7 +40,7 @@ ROOM 0
 NAME example room
 EXT 8,0 1 10,15 FX fade_b
 PAL 0
-TUNE 2
+TUNE 4
 
 ROOM 1
 d,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a
@@ -61,8 +61,9 @@ a,0,0,0,0,0,0,0,0,0,0,0,0,0,0,a
 a,a,a,a,a,a,a,a,a,0,0,0,0,a,a,a
 ITM 0 13,2
 EXT 10,15 0 8,0
-EXT 5,3 2 8,15
+EXT 5,3 2 8,15 DLG 5
 PAL 1
+TUNE 4
 
 ROOM 2
 a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,0
@@ -84,6 +85,7 @@ a,a,a,a,a,a,a,g,0,g,a,a,a,a,a,a
 EXT 8,15 1 5,3
 END 6 8,6
 PAL 0
+TUNE 4
 
 TIL a
 11111111
@@ -206,6 +208,7 @@ SPR b
 00101000
 DLG 3
 POS 1 2,9
+BLIP 4
 
 SPR c
 00000000
@@ -219,6 +222,7 @@ SPR c
 NAME fake key
 DLG 7
 POS 1 4,6
+BLIP 3
 
 SPR d
 00000000
@@ -232,6 +236,7 @@ SPR d
 NAME fake key 3
 DLG 8
 POS 1 7,1
+BLIP 3
 
 SPR e
 00000000
@@ -245,6 +250,7 @@ SPR e
 NAME fake key 2
 DLG 9
 POS 1 2,12
+BLIP 3
 
 SPR f
 00000000
@@ -258,6 +264,7 @@ SPR f
 NAME fakekey 4
 DLG a
 POS 1 10,8
+BLIP 3
 
 SPR g
 00000000
@@ -270,6 +277,7 @@ SPR g
 01111110
 DLG 5
 POS 2 8,5
+BLIP 5
 
 ITM 0
 00000000
@@ -282,6 +290,7 @@ ITM 0
 00000000
 NAME real key
 DLG 4
+BLIP 2
 
 DLG 3
 """
@@ -302,7 +311,14 @@ found password
 NAME real key dialog
 
 DLG 5
-password imported
+"""
+{
+  - {hasrealkey} == 1 ?
+    {property open true}
+  - else ?
+    {property lockd false} door locked
+}
+"""
 NAME sprite g dialog
 
 DLG 6
@@ -330,26 +346,19 @@ DLG a
 wrong.
 NAME fakekey 4 dialog
 
+DLG b
+
+NAME exit dialog 1
+
 VAR hasrealkey
 0
 
 TUNE 1
-d,0,d,0,3d5,0,0,0,3l,0,0,0,3s,0,0,0
-16d2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
->
-4l,0,0,0,s,0,3l,0,0,0,2s,0,2m,0,2r,0
-16m2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
->
-3d,0,0,0,3d5,0,0,0,3l,0,0,0,3s,0,0,0
-16l2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
->
-3l,0,0,0,s,0,4m,0,0,0,4r,0,0,0,0,0
-16s2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+C5,C5,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 NAME finale fanfare
-KEY C,D,E,F,G,A,B d,r,m,s,l
-TMP XFST
+TMP MED
 SQR P2 P8
-ARP INT8
 
 TUNE 2
 0,0,2G,0,A,0,B,0,2C5,0,B,A,G,0,2G,0
@@ -407,17 +416,62 @@ NAME rhythmic ruins
 TMP MED
 SQR P4 P4
 
-BLIP 1
-E5,B5,B5
-NAME meow
-ENV 40 99 4 185 138
-BEAT 61 115
-SQR P2
+TUNE 4
+l,l,l,0,0,d5,s,s,0,m,m,m,l,l,l,l
+16r2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+>
+0,d5,d5,0,l,0,s,0,l,0,d5,s,0,s,s,m
+16l2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+NAME song
+KEY C,D,E,F,G,A,B d,r,m,s,l
+TMP MED
+SQR P2 P8
+ARP INT8
+
+TUNE 5
+0,s~3,d,0,0,d5,d5~3,d5~3,d5~3,l~3,l~3,l~3,s~3,s~3,m~3,m~3
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+>
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+>
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+>
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+NAME pick up 2
+KEY C,D,E,F,G,A,B d,r,m,s,l
+TMP SLW
+SQR P2 P8
+ARP DWN
 
 BLIP 2
-D5,E5,D5
+E5,F#5,E5
 NAME pick up key
 ENV 99 65 6 96 152
-BEAT 95 0
+BEAT 32 0
 SQR P4
+
+BLIP 3
+A2,G3,G
+NAME pick up 2
+ENV 263 209 3 225 186
+BEAT 110 420
+SQR P2
+RPT 1
+
+BLIP 4
+A,D#5,E
+NAME pick up 3
+ENV 65 108 9 217 89
+BEAT 192 0
+SQR P4
+
+BLIP 5
+A,D#5,G5
+NAME greeting 1
+ENV 2 30 8 245 36
+BEAT 32 146
+SQR P2
 
